@@ -10,6 +10,6 @@ class DataPoint {
   drawDataPoint() {
     stroke(255);
     this.label == 1 ? fill(0) : fill(255);
-    ellipse(this.x, this.y, 6, 6);
+    ellipse(this.x, this.y, 11.5, 11.5);
   }
 }
