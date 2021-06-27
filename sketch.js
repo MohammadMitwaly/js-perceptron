@@ -1,11 +1,14 @@
 const perceptron = new Perceptron();
 const inputs = fillArray(2, -1, 1);
+let points;
 
 function setup() {
   createCanvas(400, 400);
-  console.log(perceptron.guess(inputs));
+  points = initDataset(100, DataPoint);
 }
 
 function draw() {
-  background(220);
+  background(0);
+  line(0, 0, width, height);
+  points.forEach((point) => point.drawDataPoint());
 }

@@ -14,3 +14,11 @@ const activationFunction = (weightedSumOfInputs) => {
 const fillArray = (len, min, max) => {
   return Array.from({ length: len }, () => getRndInteger(min, max));
 };
+
+const initDataset = (len, classToBuildWith) => {
+  const dataset = [];
+  for (let i = 0; i < len; i++) {
+    dataset.push(new classToBuildWith());
+  }
+  return dataset;
+};
