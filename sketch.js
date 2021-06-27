@@ -33,7 +33,6 @@ function draw() {
 }
 
 function trainSpecificIndex() {
-  console.log(trainingIndex);
   const point = points[trainingIndex];
   const inputs = [point.x, point.y];
   const targetLabel = point.label;
