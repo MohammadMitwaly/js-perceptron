@@ -1,4 +1,5 @@
 const amountOfWeights = 3;
+const amountOfDataPoints = 500;
 const perceptron = new Perceptron(amountOfWeights);
 const inputs = fillArray(2, -1, 1);
 let points;
@@ -6,7 +7,7 @@ let trainingIndex = 0;
 
 function setup() {
   createCanvas(750, 750);
-  points = initDataset(100, DataPoint);
+  points = initDataset(amountOfDataPoints, DataPoint);
 }
 
 function draw() {
