@@ -29,6 +29,6 @@ class DataPoint {
     this.label == 1 ? fill(0) : fill(255);
     const pX = this.getPixelXCoordinate();
     const pY = this.getPixelYCoordinate();
-    ellipse(pX, pY, 11.5, 11.5);
+    ellipse(pX, pY, 15, 15);
   }
 }

@@ -1,7 +1,7 @@
 class Perceptron {
   weights = [];
   // How much to adjust the weights on each training epoch
-  learningRate = 0.1;
+  learningRate = 0.01;
 
   constructor(amountOfWeights) {
     // Initializing the weights to random starting values based on an input amount
