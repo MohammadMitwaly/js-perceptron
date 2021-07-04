@@ -12,7 +12,7 @@ function draw() {
   background(0);
   // seperating the values by the line that is ➡ y = x
   stroke(255);
-  line(0, 0, width, height);
+  line(width, 0, 0, height);
   points.forEach((point) => {
     // Drawing each point
     point.drawDataPoint();
@@ -23,7 +23,12 @@ function draw() {
     const prediction = perceptron.predict(inputs);
     prediction === targetLabel ? fill("green") : fill("red");
     noStroke();
-    ellipse(point.x, point.y, 11.25, 11.25);
+    ellipse(
+      point.getPixelXCoordinate(),
+      point.getPixelYCoordinate(),
+      11.25,
+      11.25
+    );
   });
 
   trainSpecificIndex();
