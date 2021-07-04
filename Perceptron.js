@@ -1,13 +1,13 @@
 class Perceptron {
-  weights = [0, 0];
+  weights = [];
   // How much to adjust the weights on each training epoch
   learningRate = 0.1;
 
-  constructor() {
-    // Initializing the weights to random starting values
-    this.weights.forEach((_weight, index, arr) => {
-      arr[index] = getRndInteger(-1, 1);
-    });
+  constructor(amountOfWeights) {
+    // Initializing the weights to random starting values based on an input amount
+    for (let i = 0; i < amountOfWeights; i++) {
+      this.weights.push(getRndInteger(-1, 1));
+    }
   }
 
   // Make a prediction(infer) the label of the given input
@@ -28,5 +28,13 @@ class Perceptron {
     this.weights.forEach((_weight, index, arr) => {
       arr[index] += error * inputs[index] * this.learningRate;
     });
+  }
+
+  // Seeing where the perceptron "thinks" the line is at this stage in training
+  preditCurrentLine(xCoordinate) {
+    const weight0 = this.weights[0];
+    const weight1 = this.weights[1];
+    const weight2 = this.weights[2];
+    return -(weight2 / weight1) - (weight0 / weight1) * xCoordinate;
   }
 }

@@ -4,6 +4,7 @@ class DataPoint {
     // This allows us to create our own points with specific coordinates, or create random points
     this.x = inputX !== undefined ? inputX : random(-1, 1);
     this.y = inputY !== undefined ? inputY : random(-1, 1);
+    // This bias will prevent the perceptron from getting stuck on points like (0,0)
     this.bias = 1;
 
     const lineY = lineFunc(this.y);
