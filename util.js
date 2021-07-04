@@ -22,3 +22,9 @@ const initDataset = (len, classToBuildWith) => {
   }
   return dataset;
 };
+
+// This is the line function, baiscally "f(x)"
+// For now it is a simple line: y= mx + b
+const lineFunc = (x) => {
+  return 0.3 * x - 0.2;
+};

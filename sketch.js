@@ -12,7 +12,15 @@ function draw() {
   background(0);
   // seperating the values by the line that is ➡ y = x
   stroke(255);
-  line(width, 0, 0, height);
+  const examplePointOnTheLine1 = new DataPoint(-1, lineFunc(-1));
+  const examplePointOnTheLine2 = new DataPoint(1, lineFunc(1));
+
+  line(
+    examplePointOnTheLine1.getPixelXCoordinate(),
+    examplePointOnTheLine1.getPixelYCoordinate(),
+    examplePointOnTheLine2.getPixelXCoordinate(),
+    examplePointOnTheLine2.getPixelYCoordinate()
+  );
   points.forEach((point) => {
     // Drawing each point
     point.drawDataPoint();

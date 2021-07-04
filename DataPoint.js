@@ -1,9 +1,14 @@
 class DataPoint {
-  constructor() {
-    // Using P5's 'random' function to create points within a Cartesian coordinate system
-    this.x = random(-1, 1);
-    this.y = random(-1, 1);
-    this.label = this.x > this.y ? 1 : -1;
+  constructor(inputX, inputY) {
+    // Using P5's 'random' function to create points within a Cartesian coordinate system if we do not send input
+    // This allows us to create our own points with specific coordinates, or create random points
+    this.x = inputX !== undefined ? inputX : random(-1, 1);
+    this.y = inputY !== undefined ? inputY : random(-1, 1);
+    this.bias = 1;
+
+    const lineY = lineFunc(this.y);
+
+    this.label = this.y > lineY ? 1 : -1;
   }
 
   // Mapping the Cartesian values to Pixel values
