@@ -17,4 +17,12 @@ class Matrix {
     }
     return arr;
   }
+
+  scaleMatrix(scalar) {
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((item, colIndex) => {
+        this.values[rowIndex][colIndex] *= scalar;
+      });
+    });
+  }
 }
