@@ -31,38 +31,43 @@ class Matrix {
     });
   }
 
+  //TODO: Add broadcasting support
   multiplyScalar(scalar) {
+    const scalarValues = scalar.values;
     this.values.forEach((row, rowIndex) => {
-      row.forEach((item, colIndex) => {
+      row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] *=
-          scalar instanceof Matrix ? scalar[i][j] : scalar;
+          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
       });
     });
   }
 
   addScalar(scalar) {
+    const scalarValues = scalar.values;
     this.values.forEach((row, rowIndex) => {
-      row.forEach((item, colIndex) => {
+      row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] +=
-          scalar instanceof Matrix ? scalar[i][j] : scalar;
+          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
       });
     });
   }
 
   subtractScalar(scalar) {
+    const scalarValues = scalar.values;
     this.values.forEach((row, rowIndex) => {
-      row.forEach((item, colIndex) => {
+      row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] -=
-          scalar instanceof Matrix ? scalar[i][j] : scalar;
+          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
       });
     });
   }
 
   divideScalar(scalar) {
+    const scalarValues = scalar.values;
     this.values.forEach((row, rowIndex) => {
-      row.forEach((item, colIndex) => {
+      row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] /=
-          scalar instanceof Matrix ? scalar[i][j] : scalar;
+          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
       });
     });
   }
