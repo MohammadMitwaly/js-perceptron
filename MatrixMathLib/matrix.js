@@ -18,6 +18,19 @@ class Matrix {
     return arr;
   }
 
+  randomiseValues(lowerLimit, upperLimit) {
+    lowerLimit = lowerLimit !== undefined ? lowerLimit : 10;
+    upperLimit = upperLimit !== undefined ? upperLimit : 10;
+
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        this.values[rowIndex][colIndex] = Math.floor(
+          Math.random() * (upperLimit - lowerLimit) + lowerLimit
+        );
+      });
+    });
+  }
+
   multiplyScalar(scalar) {
     this.values.forEach((row, rowIndex) => {
       row.forEach((item, colIndex) => {
