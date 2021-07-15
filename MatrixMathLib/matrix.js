@@ -21,7 +21,8 @@ class Matrix {
   multiplyScalar(scalar) {
     this.values.forEach((row, rowIndex) => {
       row.forEach((item, colIndex) => {
-        this.values[rowIndex][colIndex] *= scalar;
+        this.values[rowIndex][colIndex] *=
+          scalar instanceof Matrix ? scalar[i][j] : scalar;
       });
     });
   }
@@ -29,7 +30,8 @@ class Matrix {
   addScalar(scalar) {
     this.values.forEach((row, rowIndex) => {
       row.forEach((item, colIndex) => {
-        this.values[rowIndex][colIndex] += scalar;
+        this.values[rowIndex][colIndex] +=
+          scalar instanceof Matrix ? scalar[i][j] : scalar;
       });
     });
   }
@@ -37,7 +39,8 @@ class Matrix {
   subtractScalar(scalar) {
     this.values.forEach((row, rowIndex) => {
       row.forEach((item, colIndex) => {
-        this.values[rowIndex][colIndex] -= scalar;
+        this.values[rowIndex][colIndex] -=
+          scalar instanceof Matrix ? scalar[i][j] : scalar;
       });
     });
   }
@@ -45,7 +48,8 @@ class Matrix {
   divideScalar(scalar) {
     this.values.forEach((row, rowIndex) => {
       row.forEach((item, colIndex) => {
-        this.values[rowIndex][colIndex] /= scalar;
+        this.values[rowIndex][colIndex] /=
+          scalar instanceof Matrix ? scalar[i][j] : scalar;
       });
     });
   }
