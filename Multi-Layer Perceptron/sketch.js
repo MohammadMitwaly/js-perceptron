@@ -2,9 +2,10 @@ const matrix = new Matrix(3, 3, 2);
 
 function setup() {
   createCanvas(400, 400);
-  console.log(matrix);
+  // console.table prints a tabular(table) view of the matrix
+  console.table(matrix.values);
   matrix.addScalar(2);
-  console.log(matrix.values);
+  console.table(matrix.values);
 }
 
 function draw() {
