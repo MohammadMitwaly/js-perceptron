@@ -7,6 +7,7 @@ class Matrix {
   }
 
   // Source: https://stackoverflow.com/a/13808461/6236395
+  // TODO: convert using array functions: map() , reduce(), fill()
   initMatrix(w, h, val) {
     var arr = [];
     for (let i = 0; i < h; i++) {
