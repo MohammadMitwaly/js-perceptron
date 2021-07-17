@@ -33,6 +33,7 @@ class Matrix {
   }
 
   //TODO: Add broadcasting support
+  // TODO: Add tests to future proof any changes
   // isHadamard refers to: https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
   multiplyScalar(scalar, isHadamard) {
     const scalarValues = scalar.values;
