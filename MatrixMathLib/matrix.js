@@ -33,14 +33,22 @@ class Matrix {
   }
 
   //TODO: Add broadcasting support
-  multiplyScalar(scalar) {
+  // isHadamard refers to: https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
+  multiplyScalar(scalar, isHadamard) {
     const scalarValues = scalar.values;
-    this.values.forEach((row, rowIndex) => {
-      row.forEach((_item, colIndex) => {
-        this.values[rowIndex][colIndex] *=
-          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
+    if (isHadamard || !scalar instanceof Matrix) {
+      this.values.forEach((row, rowIndex) => {
+        row.forEach((_item, colIndex) => {
+          this.values[rowIndex][colIndex] *=
+            scalar instanceof Matrix
+              ? scalarValues[rowIndex][colIndex]
+              : scalar;
+        });
       });
-    });
+    } else if (scalar.rows !== this.cols) {
+      throw new Error("Matrix dimensions are not suitable");
+    } else {
+    }
   }
 
   addScalar(scalar) {
