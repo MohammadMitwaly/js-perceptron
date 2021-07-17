@@ -10,16 +10,16 @@ class Matrix {
   // TODO: convert using array functions: map() , reduce(), fill()
   initMatrix(w, h, val) {
     var arr = [];
-    for (let i = 0; i < h; i++) {
+    for (let i = 0; i < w; i++) {
       arr[i] = [];
-      for (let j = 0; j < w; j++) {
+      for (let j = 0; j < h; j++) {
         arr[i][j] = val;
       }
     }
     return arr;
   }
 
-  randomiseValues(lowerLimit, upperLimit) {
+  randomizeValues(lowerLimit, upperLimit) {
     lowerLimit = lowerLimit !== undefined ? lowerLimit : 10;
     upperLimit = upperLimit !== undefined ? upperLimit : 10;
 
@@ -51,7 +51,7 @@ class Matrix {
       const productMatrix = new Matrix(this.rows, scalar.cols);
       const a = this;
       const b = scalar;
-      this.values.forEach((row, rowIndex) => {
+      productMatrix.values.forEach((row, rowIndex) => {
         row.forEach((_item, colIndex) => {
           let sum = 0;
           for (let k = 0; k < a.cols; k++) {
