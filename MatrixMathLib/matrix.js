@@ -48,6 +48,19 @@ class Matrix {
     } else if (scalar.rows !== this.cols) {
       throw new Error("Matrix dimensions are not suitable");
     } else {
+      const productMatrix = new Matrix(this.rows, scalar.cols);
+      const a = this;
+      const b = scalar;
+      this.values.forEach((row, rowIndex) => {
+        row.forEach((_item, colIndex) => {
+          let sum = 0;
+          for (let k = 0; k < a.cols; k++) {
+            sum += a.values[rowIndex][k] * b.values[k][colIndex];
+          }
+          productMatrix.values[rowIndex][colIndex] = sum;
+        });
+      });
+      return productMatrix;
     }
   }
 
