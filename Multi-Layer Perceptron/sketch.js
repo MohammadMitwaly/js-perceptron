@@ -11,6 +11,9 @@ function setup() {
 
   const productMatrix = matrix1.multiplyScalar(matrix2);
   console.table(productMatrix.values);
+
+  const transposedMatrix = matrix2.transpose();
+  console.table(transposedMatrix.values);
 }
 
 function draw() {
