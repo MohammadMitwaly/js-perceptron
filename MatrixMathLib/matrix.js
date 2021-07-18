@@ -94,4 +94,16 @@ class Matrix {
       });
     });
   }
+
+  // https://mathinsight.org/matrix_transpose
+  transpose() {
+    const transposedMatrix = new Matrix(this.cols, this.rows);
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        transposedMatrix.values[colIndex][rowIndex] =
+          this.values[rowIndex][colIndex];
+      });
+    });
+    return transposedMatrix;
+  }
 }
