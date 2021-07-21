@@ -35,13 +35,19 @@ class Matrix {
   //TODO: Add broadcasting support
   // TODO: Add tests to future proof any changes
   multiplyScalar(scalar) {
-    const scalarValues = scalar.values;
-    this.values.forEach((row, rowIndex) => {
-      row.forEach((_item, colIndex) => {
-        this.values[rowIndex][colIndex] *=
-          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
+    if (scalar instanceof Number || scalar instanceof Matrix) {
+      const scalarValues = scalar.values;
+      this.values.forEach((row, rowIndex) => {
+        row.forEach((_item, colIndex) => {
+          this.values[rowIndex][colIndex] *=
+            scalar instanceof Matrix
+              ? scalarValues[rowIndex][colIndex]
+              : scalar;
+        });
       });
-    });
+    } else {
+      throw new Error("Scalar must be a number or another Matrix");
+    }
   }
 
   // This function is here to avoid mutating the state of the current object's matrix if we don't want to
