@@ -5,15 +5,16 @@ function setup() {
   createCanvas(400, 400);
   matrix1.randomizeValues(1, 5);
   matrix2.randomizeValues(1, 5);
-  // console.table prints a tabular(table) view of the matrix
-  console.table(matrix1.values);
-  console.table(matrix2.values);
+
+  // Table is a helper function that calls console.table, find it in Utils/util.js
+  table(matrix1.values);
+  table(matrix2.values);
 
   const productMatrix = matrix1.multiplyScalar(matrix2);
-  console.table(productMatrix.values);
+  table(productMatrix.values);
 
   const transposedMatrix = matrix2.transpose();
-  console.table(transposedMatrix.values);
+  table(transposedMatrix.values);
 }
 
 function draw() {
