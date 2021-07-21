@@ -125,4 +125,31 @@ class Matrix {
     });
     return transposedMatrix;
   }
+
+  // Use this to call a function on all of the values in the values matrix
+  mapToValues(fn) {
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        const currentItemValue = this.values[rowIndex][colIndex];
+        this.values[rowIndex][colIndex] = fn(
+          currentItemValue,
+          rowIndex,
+          colIndex
+        );
+      });
+    });
+  }
+
+  static mapToValues(matrix, fn) {
+    matrix.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        const currentItemValue = matrix.values[rowIndex][colIndex];
+        matrix.values[rowIndex][colIndex] = fn(
+          currentItemValue,
+          rowIndex,
+          colIndex
+        );
+      });
+    });
+  }
 }
