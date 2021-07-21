@@ -10,11 +10,8 @@ function setup() {
   table(matrix1.values);
   table(matrix2.values);
 
-  const productMatrix = matrix1.multiplyScalar(matrix2);
-  table(productMatrix.values);
-
-  const transposedMatrix = matrix2.transpose();
-  table(transposedMatrix.values);
+  const matrix3 = Matrix.multiply(matrix1, matrix2);
+  table(matrix3.values);
 }
 
 function draw() {

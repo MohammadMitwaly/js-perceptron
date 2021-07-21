@@ -34,24 +34,24 @@ class Matrix {
 
   //TODO: Add broadcasting support
   // TODO: Add tests to future proof any changes
-  // isHadamard refers to: https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
-  multiplyScalar(scalar, isHadamard) {
+  multiplyScalar(scalar) {
     const scalarValues = scalar.values;
-    if (isHadamard || !scalar instanceof Matrix) {
-      this.values.forEach((row, rowIndex) => {
-        row.forEach((_item, colIndex) => {
-          this.values[rowIndex][colIndex] *=
-            scalar instanceof Matrix
-              ? scalarValues[rowIndex][colIndex]
-              : scalar;
-        });
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        this.values[rowIndex][colIndex] *=
+          scalar instanceof Matrix ? scalarValues[rowIndex][colIndex] : scalar;
       });
-    } else if (scalar.rows !== this.cols) {
+    });
+  }
+
+  // This function is here to avoid mutating the state of the current object's matrix if we don't want to
+  static multiply(matrix1, matrix2) {
+    if (matrix1.rows !== matrix2.cols) {
       throw new Error("Matrix dimensions are not suitable");
     } else {
-      const productMatrix = new Matrix(this.rows, scalar.cols);
-      const a = this;
-      const b = scalar;
+      const productMatrix = new Matrix(matrix2.rows, matrix1.cols);
+      const a = matrix2;
+      const b = matrix1;
       productMatrix.values.forEach((row, rowIndex) => {
         row.forEach((_item, colIndex) => {
           let sum = 0;
