@@ -102,12 +102,25 @@ class Matrix {
   }
 
   // https://mathinsight.org/matrix_transpose
+  // Transpose the values matrix of the current object
   transpose() {
     const transposedMatrix = new Matrix(this.cols, this.rows);
     this.values.forEach((row, rowIndex) => {
       row.forEach((_item, colIndex) => {
         transposedMatrix.values[colIndex][rowIndex] =
           this.values[rowIndex][colIndex];
+      });
+    });
+    return transposedMatrix;
+  }
+
+  // Transpose any matrix
+  static transpose(m) {
+    const transposedMatrix = new Matrix(m.cols, m.rows);
+    m.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        transposedMatrix.values[colIndex][rowIndex] =
+          m.values[rowIndex][colIndex];
       });
     });
     return transposedMatrix;
