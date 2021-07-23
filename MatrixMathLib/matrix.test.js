@@ -23,3 +23,16 @@ test("Matrix randomize in range", () => {
   expect(testM.values[0][0]).toBeGreaterThanOrEqual(1);
   expect(testM.values[0][0]).toBeLessThan(6);
 });
+
+test("Matrix multiplication output structure", () => {
+  const matrix1 = new Matrix(2, 3);
+  const matrix2 = new Matrix(3, 2);
+
+  matrix1.randomizeValues(1, 5);
+  matrix2.randomizeValues(1, 5);
+
+  const matrix3 = Matrix.multiply(matrix1, matrix2);
+
+  expect(matrix3.rows).toBe(matrix2.rows);
+  expect(matrix3.cols).toBe(matrix1.cols);
+});
