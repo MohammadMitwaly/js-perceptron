@@ -33,7 +33,6 @@ class Matrix {
   }
 
   //TODO: Add broadcasting support
-  // TODO: Add tests to future proof any changes
   multiplyScalar(scalar) {
     if (scalar instanceof Number || scalar instanceof Matrix) {
       const scalarValues = scalar.values;
