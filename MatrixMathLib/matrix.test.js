@@ -19,7 +19,7 @@ test("Matrix randomize in range", () => {
   const testM = new Matrix(3, 3);
   const lowerLimit = 1;
   const upperLimit = 5;
-  testM.randomizeValues(lowerLimit, upperLimit);
+  testM.randomizeValuesIntegers(lowerLimit, upperLimit);
   expect(testM.values[0][0]).toBeGreaterThanOrEqual(1);
   expect(testM.values[0][0]).toBeLessThan(6);
 });
@@ -28,8 +28,8 @@ test("Matrix multiplication output structure", () => {
   const matrix1 = new Matrix(2, 3);
   const matrix2 = new Matrix(3, 2);
 
-  matrix1.randomizeValues(1, 5);
-  matrix2.randomizeValues(1, 5);
+  matrix1.randomizeValuesIntegers(1, 5);
+  matrix2.randomizeValuesIntegers(1, 5);
 
   const matrix3 = Matrix.multiply(matrix1, matrix2);
 

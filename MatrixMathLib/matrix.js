@@ -19,7 +19,7 @@ class Matrix {
     return arr;
   }
 
-  randomizeValues(lowerLimit, upperLimit) {
+  randomizeValuesIntegers(lowerLimit, upperLimit) {
     lowerLimit = lowerLimit !== undefined ? lowerLimit : 10;
     upperLimit = upperLimit !== undefined ? upperLimit : 10;
 
@@ -28,6 +28,16 @@ class Matrix {
         this.values[rowIndex][colIndex] = Math.floor(
           Math.random() * (upperLimit - lowerLimit) + lowerLimit
         );
+      });
+    });
+  }
+
+  //TODO: Update with specific range
+  // Now it only generate values between 1 and -1
+  randomizeValuesDecimal() {
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        this.values[rowIndex][colIndex] = Math.random() * 2 - 1;
       });
     });
   }
