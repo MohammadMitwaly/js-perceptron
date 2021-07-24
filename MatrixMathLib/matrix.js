@@ -149,6 +149,17 @@ class Matrix {
     });
   }
 
+  convertFromMatrixToArray() {
+    const outputArr = [];
+    this.values.forEach((row, rowIndex) => {
+      row.forEach((_item, colIndex) => {
+        const currentItemValue = this.values[rowIndex][colIndex];
+        outputArr.push(currentItemValue);
+      });
+    });
+    return outputArr;
+  }
+
   static mapToValues(matrix, fn) {
     matrix.values.forEach((row, rowIndex) => {
       row.forEach((_item, colIndex) => {
@@ -160,6 +171,14 @@ class Matrix {
         );
       });
     });
+  }
+
+  static convertFromArrayToMatrix(arr) {
+    const matrix = new Matrix(arr.length, 1);
+    arr.forEach((value, rowIndex) => {
+      matrix.values[rowIndex][0] = value;
+    });
+    return matrix;
   }
 }
 
