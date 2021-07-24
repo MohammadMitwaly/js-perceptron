@@ -1,5 +1,3 @@
-const Matrix = require("../MatrixMathLib/matrix");
-
 class NeuralNetwork {
   constructor(inputAmount, hiddenNeurons, outputAmount) {
     this.inputNodes = inputAmount;
@@ -40,8 +38,8 @@ class NeuralNetwork {
 
     // Phase 2: generating the output weighted sums
     const outputs = Matrix.multiply(
-      hiddenWeightedSum,
-      this.weightsHiddenLayerOutputs
+      this.weightsHiddenLayerOutputs,
+      hiddenWeightedSum
     );
     outputs.addScalar(this.biasOutputs);
     outputs.mapToValues(sigmoid);

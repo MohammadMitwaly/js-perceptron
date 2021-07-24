@@ -61,10 +61,10 @@ class Matrix {
 
   // This function is here to avoid mutating the state of the current object's matrix if we don't want to
   static multiply(matrix1, matrix2) {
-    if (matrix1.rows !== matrix2.cols) {
+    if (matrix1.cols !== matrix2.rows) {
       throw new Error("Matrix dimensions are not suitable");
     } else {
-      const productMatrix = new Matrix(matrix2.rows, matrix1.cols);
+      const productMatrix = new Matrix(matrix1.rows, matrix2.cols);
       const a = matrix2;
       const b = matrix1;
       productMatrix.values.forEach((row, rowIndex) => {
@@ -140,6 +140,7 @@ class Matrix {
     this.values.forEach((row, rowIndex) => {
       row.forEach((_item, colIndex) => {
         const currentItemValue = this.values[rowIndex][colIndex];
+
         this.values[rowIndex][colIndex] = fn(
           currentItemValue,
           rowIndex,
@@ -182,4 +183,4 @@ class Matrix {
   }
 }
 
-module.exports = Matrix;
+// module.exports = Matrix;
