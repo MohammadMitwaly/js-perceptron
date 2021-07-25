@@ -46,4 +46,6 @@ class NeuralNetwork {
     // SImplify output to a normal array(similar to our inputs) instead of a Matrix object
     return outputs.convertFromMatrixToArray();
   }
+
+  backpropagation() {}
 }
