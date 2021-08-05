@@ -181,6 +181,31 @@ class Matrix {
     });
     return matrix;
   }
+
+  static subtractMatrices(matrixA, matrixB) {
+    // Check if dimensions match
+    if (
+      matrixA.amountOfColumns === matrixB.amountOfColumns &&
+      matrixB.amountOfRows === matrixB.amountOfRows
+    ) {
+      const scalarValuesA = matrixA.values;
+      const scalarValuesB = matrixB.values;
+      const resultMatrix = new Matrix(
+        matrixA.amountOfColumns,
+        matrixA.amountOfRows
+      );
+      resultMatrix.values.forEach((row, rowIndex) => {
+        row.forEach((_item, colIndex) => {
+          resultMatrix.values[rowIndex][colIndex] =
+            scalarValuesA[rowIndex][colIndex] -
+            scalarValuesB[rowIndex][colIndex];
+        });
+      });
+      return resultMatrix;
+    } else {
+      throw new Error("Dimensions do not match");
+    }
+  }
 }
 
 // module.exports = Matrix;

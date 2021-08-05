@@ -43,9 +43,15 @@ class NeuralNetwork {
     );
     outputs.addScalar(this.biasOutputs);
     outputs.mapToValues(sigmoid);
-    // SImplify output to a normal array(similar to our inputs) instead of a Matrix object
+    // Simplify output to a normal array(similar to our inputs) instead of a Matrix object
     return outputs.convertFromMatrixToArray();
   }
 
-  backpropagation() {}
+  backpropagation(inputs, targetLabels) {
+    const outputs = Matrix.convertFromArrayToMatrix(this.feedForward(inputs));
+    const targetLabels = Matrix.convertFromArrayToMatrix(targetLabels);
+
+    // Calculating the error of our model, which is = targets - outputs
+    const error = Matrix.subtract(targetLabels, outputs);
+  }
 }
