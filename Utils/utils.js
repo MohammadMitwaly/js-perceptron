@@ -1,5 +1,5 @@
 const table = (val) => {
-  console.table(val);
+  val instanceof Matrix ? console.table(val.values) : console.table(val);
 };
 
 // Initial basic function that will be used as our activation function
