@@ -49,8 +49,9 @@ class NeuralNetwork {
 
   backpropagation(inputs, targetLabels) {
     const outputs = Matrix.convertFromArrayToMatrix(this.feedForward(inputs));
-    targetLabels = Matrix.convertFromArrayToMatrix(targetLabels);
 
+    targetLabels = Matrix.convertFromArrayToMatrix(targetLabels);
+    console.log("targetLabels", targetLabels);
     // Calculating the error of our model, which is = targets - outputs
     const error = Matrix.subtractMatrices(targetLabels, outputs);
     table(outputs);

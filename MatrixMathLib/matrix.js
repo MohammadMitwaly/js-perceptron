@@ -184,16 +184,10 @@ class Matrix {
 
   static subtractMatrices(matrixA, matrixB) {
     // Check if dimensions match
-    if (
-      matrixA.amountOfColumns === matrixB.amountOfColumns &&
-      matrixB.amountOfRows === matrixB.amountOfRows
-    ) {
+    if (matrixA.cols === matrixB.cols && matrixB.rows === matrixB.rows) {
       const scalarValuesA = matrixA.values;
       const scalarValuesB = matrixB.values;
-      const resultMatrix = new Matrix(
-        matrixA.amountOfColumns,
-        matrixA.amountOfRows
-      );
+      const resultMatrix = new Matrix(matrixA.cols, matrixA.rows);
       resultMatrix.values.forEach((row, rowIndex) => {
         row.forEach((_item, colIndex) => {
           resultMatrix.values[rowIndex][colIndex] =
