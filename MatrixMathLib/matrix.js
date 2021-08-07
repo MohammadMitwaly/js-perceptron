@@ -187,7 +187,7 @@ class Matrix {
     if (matrixA.cols === matrixB.cols && matrixB.rows === matrixB.rows) {
       const scalarValuesA = matrixA.values;
       const scalarValuesB = matrixB.values;
-      const resultMatrix = new Matrix(matrixA.cols, matrixA.rows);
+      const resultMatrix = new Matrix(matrixA.rows, matrixA.cols);
       resultMatrix.values.forEach((row, rowIndex) => {
         row.forEach((_item, colIndex) => {
           resultMatrix.values[rowIndex][colIndex] =

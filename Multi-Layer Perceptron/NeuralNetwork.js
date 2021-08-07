@@ -51,11 +51,18 @@ class NeuralNetwork {
     const outputs = Matrix.convertFromArrayToMatrix(this.feedForward(inputs));
 
     targetLabels = Matrix.convertFromArrayToMatrix(targetLabels);
-    console.log("targetLabels", targetLabels);
     // Calculating the error of our model, which is = targets - outputs
-    const error = Matrix.subtractMatrices(targetLabels, outputs);
-    table(outputs);
-    table(targetLabels);
-    table(error);
+    const outputErrors = Matrix.subtractMatrices(targetLabels, outputs);
+
+    // Calculating the hidden outputs errors
+    const weightsHiddenOutputTransposed = Matrix.transpose(
+      this.weightsHiddenLayerOutputs
+    );
+    const hiddenErrors = Matrix.multiply(
+      weightsHiddenOutputTransposed,
+      outputErrors
+    );
+
+    table(hiddenErrors);
   }
 }
