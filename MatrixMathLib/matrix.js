@@ -6,8 +6,10 @@ class Matrix {
     this.values = this.initMatrix(this.rows, this.cols, this.defaultValue);
   }
 
+  // TODO: Optimize repeated look-ups and loops
+  
   // Source: https://stackoverflow.com/a/13808461/6236395
-  // TODO: convert using array functions: map() , reduce(), fill()
+  // TODO: convert using array functions: map() , reduce(), fill()  
   initMatrix(w, h, val) {
     var arr = [];
     for (let i = 0; i < w; i++) {
@@ -22,7 +24,7 @@ class Matrix {
   randomizeValuesIntegers(lowerLimit, upperLimit) {
     lowerLimit = lowerLimit !== undefined ? lowerLimit : 10;
     upperLimit = upperLimit !== undefined ? upperLimit : 10;
-
+    // TODO: Optimize for performance by replacing with for loop and changing the lookup
     this.values.forEach((row, rowIndex) => {
       row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] = Math.floor(
@@ -35,6 +37,7 @@ class Matrix {
   //TODO: Update with specific range
   // Now it only generate values between 1 and -1
   randomizeValuesDecimal() {
+    // TODO: Optimize for performance by replacing with for loop and changing the lookup
     this.values.forEach((row, rowIndex) => {
       row.forEach((_item, colIndex) => {
         this.values[rowIndex][colIndex] = Math.random() * 2 - 1;
@@ -43,6 +46,7 @@ class Matrix {
   }
 
   //TODO: Add broadcasting support
+  // TODO: Optimize for performance by replacing with for loop and changing the lookup
   multiplyScalar(scalar) {
     if (scalar instanceof Number || scalar instanceof Matrix) {
       const scalarValues = scalar.values;
